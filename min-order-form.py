@@ -1,29 +1,31 @@
+import math
+
 """
 Input an amount to have the amount bought removed from the stock level
 """
-productName = "Golf balls"
+name = "- golf balls 9pk"
 price = 1.99
-sale = input("How many would you like to buy: ")
-maxStock = 2500
+packSize = 12
+sale = input("how many would you like: ")
 minStock = 2000
 stockLevel = 2250
 stockAvailable = stockLevel - int(sale)
 stock = int(stockAvailable)
 order = minStock - int(stock)
-totalCost = price * int(sale)
+profit = price * int(sale)
+get = int(order) / packSize
 
-print(productName)
-print('Cost:', "£",price)
-print('Sale:', sale)
-print('Max stock: ', maxStock)
+print('Sale: ', sale, name)
+print('cost: ', '£', price)
+print('£', profit)
 print('Min stock: ', minStock)
 print('Stock level: ', stockLevel)
 print('Stock available: ', stockAvailable)
-print("£", totalCost)
+print('packs to order: ', round(get))
 
 if int(stock) > minStock:
     print("no stock is needed")
 else:
     if int(stock) < minStock:
         print("More stock is needed")
-        print("Please order: ", order, "boxes")
+        print("Please order: ", order, name)
