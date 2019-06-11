@@ -14,6 +14,8 @@ stock = int(stockAvailable)
 order = minStock - int(stock)
 profit = price * int(sale)
 get = int(order) / packSize
+ordered = int(get) * packSize
+buy = int(order) - int(ordered)
 
 print('Sale: ', sale, name)
 print('cost: ', '£', price)
@@ -21,7 +23,6 @@ print('£', profit)
 print('Min stock: ', minStock)
 print('Stock level: ', stockLevel)
 print('Stock available: ', stockAvailable)
-print('packs to order: ', round(get))
 
 if int(stock) > minStock:
     print("no stock is needed")
@@ -29,3 +30,9 @@ else:
     if int(stock) < minStock:
         print("More stock is needed")
         print("Please order: ", order, name)
+
+
+if int(ordered) < int(order):
+    buy = ordered + packSize
+    print('buy: ', ordered + packSize, '- balls')
+    print('boxes ordered: ', math.ceil(get), '- Packs')
